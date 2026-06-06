@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre El Faro de Riohacha - Un monumento histórico de más de 185 años en el Caribe colombiano.">
+    <meta name="theme-color" content="#023E8A">
+    <title>El Faro de Riohacha | Patrimonio Cultural Colombiano</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ENCUESTA INICIAL OBLIGATORIA -->
+    <div id="surveyOverlay" class="survey-overlay active" role="dialog" aria-labelledby="surveyTitle">
+        <div class="survey-wrapper">
+            <div class="survey-box">
+                <!-- Encabezado -->
+                <div class="survey-header">
+                    <div class="survey-welcome-icon">🏜️</div>
+                    <h1 id="surveyTitle">Bienvenido a La Guajira</h1>
+                    <p class="survey-subtitle">Antes de comenzar, nos gustaría conocerte</p>
+                </div>
+
+                <!-- Formulario -->
+                <form id="surveyForm" class="survey-form" novalidate>
+                    <!-- Campo 1: Edad -->
+                    <div class="survey-field">
+                        <label for="ageField" class="survey-label">
+                            ¿Cuál es tu rango de edad? <span class="required-marker">*</span>
+                        </label>
+                        <select id="ageField" name="age" required aria-required="true">
+                            <option value="">-- Selecciona --</option>
+                            <option value="menor18">Menor de 18 años</option>
+                            <option value="18-25">18 a 25 años</option>
+                            <option value="26-35">26 a 35 años</option>
+                            <option value="36-45">36 a 45 años</option>
+                            <option value="46-60">46 a 60 años</option>
+                            <option value="mayor60">Mayor de 60 años</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo 2: Procedencia -->
+                    <div class="survey-field">
+                        <label for="originField" class="survey-label">
+                            ¿De dónde eres? <span class="required-marker">*</span>
+                        </label>
+                        <select id="originField" name="origin" required aria-required="true">
+                            <option value="">-- Selecciona --</option>
+                            <option value="riohacha">Riohacha</option>
+                            <option value="guajira">Otro municipio de La Guajira</option>
+                            <option value="colombia">Otro departamento de Colombia</option>
+                            <option value="extranjero">Extranjero</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo 3: Tipo de visitante -->
+                    <div class="survey-field">
+                        <label class="survey-label">
+                            ¿Qué tipo de visitante eres? <span class="required-marker">*</span>
+                        </label>
+                        <div class="survey-radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="visitorType" value="turista" required>
+                                <span>🎒 Turista</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="visitorType" value="residente" required>
+                                <span>🏠 Residente</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="visitorType" value="estudiante" required>
+                                <span>📚 Estudiante</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="visitorType" value="investigador" required>
+                                <span>🔬 Investigador</span>
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="visitorType" value="otro" required>
+                                <span>✨ Otro</span>
+                            </label>
+                        </div>
+                        <input
+                            type="text"
+                            id="otherTypeField"
+                            class="survey-text-input"
+                            placeholder="Especifica tu tipo de visitante..."
+                            style="display: none;"
+                        >
+                    </div>
+
+                    <!-- Botón envío -->
+                    <button type="submit" class="survey-btn-submit">
+                        Acceder al contenido
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    <!-- Footer seguridad -->
+                    <p class="survey-security">
+                        <i class="fas fa-shield-alt"></i>
+                        Tus datos son anónimos y confidenciales
+                    </p>
+                </form>
+            </div>
+
+            <!-- Decoración visual -->
+            <div class="survey-decoration"></div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL (oculto hasta completar encuesta) -->
+    <div id="mainContent" class="main-content hidden">
+        <!-- NAVBAR -->
+        <nav class="navbar" id="navbar">
+            <div class="navbar-inner">
+                <div class="navbar-brand">
+                    <span class="brand-icon">🏛️</span>
+                    <span class="brand-text">El Faro</span>
+                </div>
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="hero-background">
+                <img
+                    src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&h=1080&fit=crop&q=80"
+                    alt="El Faro de Riohacha al atardecer"
+                    class="hero-image"
+                    loading="eager"
+                >
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-title">El Faro de Riohacha</h1>
+                <p class="hero-subtitle">Patrimonio del Caribe colombiano</p>
+                <p class="hero-description">Más de 185 años iluminando nuestras costas</p>
+
+                <a href="#monumento" class="hero-cta-btn">
+                    <span>Descubre su historia</span>
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+
+            <!-- Onda decorativa -->
+            <svg class="wave-divider" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                <path d="M0,50 Q300,0 600,50 T1200,50 L1200,100 L0,100 Z" fill="white" />
+            </svg>
+        </section>
+
+        <!-- SECCIÓN DEL MONUMENTO -->
+        <section id="monumento" class="monument-section">
+            <div class="monument-container">
+                <!-- Imagen del monumento -->
+                <div class="monument-image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=900&fit=crop&q=80"
+                        alt="Vista detallada del Faro de Riohacha"
+                        class="monument-image"
+                        loading="lazy"
+                    >
+                    <div class="monument-badge">Patrimonio Cultural</div>
+                </div>
+
+                <!-- Información del monumento -->
+                <div class="monument-content">
+                    <h2 class="monument-title">Un símbolo de identidad guajira</h2>
+                    <p class="monument-lead">Testigo de más de dos siglos de historia caribeña</p>
+
+                    <!-- Historia principal -->
+                    <div class="monument-history">
+                        <p>
+                            El Faro de Riohacha es uno de los monumentos más emblemáticos del Caribe colombiano.
+                            Construido en 1835, ha permanecido firme durante más de 185 años, guiando a navegantes
+                            y siendo testigo silencioso de la evolución de nuestro puerto.
+                        </p>
+                        <p>
+                            Su arquitectura refleja la influencia del período colonial tardío, combinando elementos
+                            de ingeniería que lo han mantenido en pie a través de huracanes, terremotos y cambios climáticos.
+                            Fue restaurado en 1962 y modernizado en 2010 con tecnología LED sostenible.
+                        </p>
+                        <p>
+                            Más que una estructura, el Faro representa la conexión histórica de Riohacha con el comercio
+                            marítimo del Caribe, la fortaleza del pueblo guajiro y su capacidad de resistencia ante los cambios
+                            del tiempo.
+                        </p>
+                    </div>
+
+                    <!-- Características principales -->
+                    <div class="monument-facts">
+                        <div class="fact-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Construido</h3>
+                            <p>1835</p>
+                        </div>
+                        <div class="fact-card">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <h3>Altura</h3>
+                            <p>35 metros</p>
+                        </div>
+                        <div class="fact-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Ubicación</h3>
+                            <p>Sector Histórico<br>Riohacha, La Guajira</p>
+                        </div>
+                        <div class="fact-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Restaurado</h3>
+                            <p>1962 y 2010</p>
+                        </div>
+                    </div>
+
+                    <!-- Importancia -->
+                    <div class="monument-importance">
+                        <h3>Importancia histórica</h3>
+                        <ul class="importance-list">
+                            <li><strong>Guía marítima:</strong> Ha iluminado el Caribe durante más de 185 años</li>
+                            <li><strong>Símbolo cultural:</strong> Representa la identidad del pueblo riohadense</li>
+                            <li><strong>Valor arquitectónico:</strong> Ejemplo notable de ingeniería colonial</li>
+                            <li><strong>Sostenibilidad:</strong> Modernizado con tecnología LED eficiente</li>
+                        </ul>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="monument-actions">
+                        <button class="action-btn primary">
+                            <i class="fas fa-ticket-alt"></i>
+                            Reservar visita
+                        </button>
+                        <button class="action-btn secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Más información
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-main">
+                    <h3>El Faro de Riohacha</h3>
+                    <p>Un monumento que cuenta la historia del Caribe colombiano y la fortaleza de su gente.</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>📍 Sector Histórico, Riohacha</li>
+                        <li>📞 +57 (5) 727-2870</li>
+                        <li>✉️ patrimonio@riohacha.gov.co</li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#">Horarios de visita</a></li>
+                        <li><a href="#">Tarifas y tours</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 El Faro de Riohacha. Preservando nuestro patrimonio.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
